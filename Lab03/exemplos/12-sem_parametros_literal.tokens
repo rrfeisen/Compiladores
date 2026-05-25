@@ -1,0 +1,17 @@
+INT int
+ID constante
+( (
+) )
+{ {
+INT int
+ID x
+; ;
+ID x
+= =
+DEC_VAL 42
+; ;
+RETURN return
+ID x
+; ;
+} }
+$ $

@@ -1,0 +1,10 @@
+BOOLEAN boolean
+ID verdadeiro
+( (
+) )
+{ {
+RETURN return
+BOOL_VAL true
+; ;
+} }
+$ $

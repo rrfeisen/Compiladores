@@ -1,0 +1,14 @@
+INT int
+ID dobro
+( (
+INT int
+ID n
+) )
+{ {
+RETURN return
+ID n
+* *
+DEC_VAL 2
+; ;
+} }
+$ $

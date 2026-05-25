@@ -1,0 +1,3 @@
+boolean verdadeiro() {
+  return true;
+}
