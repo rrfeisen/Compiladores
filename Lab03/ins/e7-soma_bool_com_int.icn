@@ -1,0 +1,7 @@
+# AVISO: Erro de tipo no original — operador + entre BOOL e INT.
+# Em Icon, booleans sao representados como 1/0, entao a soma funciona.
+procedure erroSomaBool(b, x)
+  local resultado
+  resultado := b + x
+  return resultado
+end

@@ -1,0 +1,7 @@
+# Em Icon, comparacoes retornam o operando direito em caso de sucesso ou falham.
+# Aqui representamos booleano como 1 (verdadeiro) ou 0 (falso).
+procedure ehZero(x)
+  local resultado
+  resultado := if x = 0 then 1 else 0
+  return resultado
+end

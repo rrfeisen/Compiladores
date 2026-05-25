@@ -1,0 +1,10 @@
+# SHADOWING: O parametro 'x' era sombreado por uma variavel local
+# no bloco interno. Em Icon, renomeamos a variavel interna para 'x2'.
+# Semantica preservada: acum = x*2; x2 = acum+9; return x2*x2
+procedure sombraParametro(x)
+  local acum, x2, resultado
+  acum      := x * 2
+  x2        := acum + 9
+  resultado := x2 * x2
+  return resultado
+end

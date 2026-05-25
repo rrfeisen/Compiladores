@@ -1,0 +1,7 @@
+# AVISO: Erro de tipo no original — variavel int recebe valor bool (true).
+# Em Icon, true e representado como 1.
+procedure erroAtribuicaoBool(a)
+  local x
+  x := 1
+  return x + a
+end

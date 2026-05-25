@@ -1,0 +1,6 @@
+procedure media3(a, b, c)
+  local soma, resultado
+  soma := a + b + c
+  resultado := soma / 3
+  return resultado
+end

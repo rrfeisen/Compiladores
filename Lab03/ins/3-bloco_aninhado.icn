@@ -1,0 +1,7 @@
+# Icon nao possui escopo de bloco; variaveis locais sao declaradas no inicio.
+procedure principal()
+  local x, y
+  x := 1
+  y := x + 2
+  return y
+end

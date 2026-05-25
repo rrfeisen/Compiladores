@@ -1,0 +1,5 @@
+procedure produto(x, y)
+  local resultado
+  resultado := x * y
+  return resultado
+end

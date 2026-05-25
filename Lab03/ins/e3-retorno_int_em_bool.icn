@@ -1,0 +1,7 @@
+# AVISO: Erro de tipo no original — funcao declarada como boolean, mas retorna int.
+# Em Icon nao ha verificacao de tipo; o inteiro e retornado normalmente.
+procedure erroRetornoInt(a, b)
+  local soma
+  soma := a + b
+  return soma
+end
