@@ -1,0 +1,10 @@
+ID a
+OP_+ +
+ID a
+OP_* *
+( (
+ID a
+OP_+ +
+ID a
+) )
+$ $

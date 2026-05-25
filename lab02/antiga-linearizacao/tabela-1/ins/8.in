@@ -1,0 +1,12 @@
+NUM 100
++ +
+NUM 200
+* *
+NUM 300
+= =
+NUM 400
+* *
+ID nome
++ +
+String "nadanada"
+$ $
