@@ -1,34 +1,64 @@
-S' -> S
-S -> Tipo ID ( LP ) { LC }
-LP -> ''
-LP -> LPx
-LPx -> P
-LPx -> P , LPx
-LC -> ''
-LC -> C LC
-P -> Tipo ID
-C -> P ;
-C -> ID = Ea ;
-C -> { LC }
-C -> RETURN Ea ;
-Tipo -> INT
-Tipo -> BOOLEAN
-Tipo -> FLOAT
-Ea -> ! Ea
-Ea -> Eb
-Eb -> Ec == Ec
-Eb -> Ec
-Ec -> E < E
-Ec -> E
-E -> E + T
-E -> E - T
-E -> T
-T -> T * F
-T -> T / F
-T -> T % F
-T -> F
-F -> ( Ea )
-F -> ID
-F -> DEC_VAL
-F -> FLOAT_VAL
-F -> BOOL_VAL
+program -> decl_list
+decl_list -> decl_list decl
+decl_list -> decl
+decl -> record_decl
+decl -> proc_decl
+record_decl -> KW_RECORD ID LPAREN param_list RPAREN
+param_list -> id_list
+param_list -> ''
+id_list -> id_list COMMA ID
+id_list -> ID
+proc_decl -> KW_PROCEDURE ID LPAREN param_list RPAREN opt_local stmt_list KW_END
+opt_local -> KW_LOCAL id_list
+opt_local -> ''
+stmt_list -> stmt_list stmt
+stmt_list -> stmt
+stmt -> expr
+stmt -> if_stmt
+stmt -> while_stmt
+stmt -> return_stmt
+if_stmt -> KW_IF expr KW_THEN block
+if_stmt -> KW_IF expr KW_THEN block KW_ELSE block
+if_stmt -> KW_IF expr KW_THEN block KW_ELSE if_stmt
+while_stmt -> KW_WHILE expr KW_DO block
+return_stmt -> KW_RETURN expr
+block -> LBRACE stmt_list RBRACE
+block -> LBRACE RBRACE
+expr -> assign_expr
+assign_expr -> or_expr OP_ASGN assign_expr
+assign_expr -> or_expr OP_PLUS_ASGN assign_expr
+assign_expr -> or_expr OP_MINUS_ASGN assign_expr
+assign_expr -> or_expr
+or_expr -> or_expr OP_OR and_expr
+or_expr -> and_expr
+and_expr -> and_expr OP_AND cmp_expr
+and_expr -> cmp_expr
+cmp_expr -> add_expr OP_EQ add_expr
+cmp_expr -> add_expr OP_NEQ add_expr
+cmp_expr -> add_expr OP_LT add_expr
+cmp_expr -> add_expr OP_LE add_expr
+cmp_expr -> add_expr OP_GT add_expr
+cmp_expr -> add_expr OP_GE add_expr
+cmp_expr -> add_expr
+add_expr -> add_expr OP_PLUS mul_expr
+add_expr -> add_expr OP_MINUS mul_expr
+add_expr -> mul_expr
+mul_expr -> mul_expr OP_TIMES unary_expr
+mul_expr -> mul_expr OP_DIV unary_expr
+mul_expr -> mul_expr OP_MOD unary_expr
+mul_expr -> unary_expr
+unary_expr -> KW_NOT unary_expr
+unary_expr -> postfix_expr
+postfix_expr -> postfix_expr OP_DOT ID
+postfix_expr -> postfix_expr LBRACKET expr RBRACKET
+postfix_expr -> postfix_expr LPAREN arg_list RPAREN
+postfix_expr -> primary
+primary -> INT_LIT
+primary -> REAL_LIT
+primary -> STRING_LIT
+primary -> ID
+primary -> LPAREN expr RPAREN
+arg_list -> expr_list
+arg_list -> ''
+expr_list -> expr_list COMMA expr
+expr_list -> expr
