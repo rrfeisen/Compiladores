@@ -1,0 +1,5 @@
+procedure descontar(preco, taxa)
+  local desconto
+  desconto := preco * (1.0 - taxa)
+  return desconto
+end
