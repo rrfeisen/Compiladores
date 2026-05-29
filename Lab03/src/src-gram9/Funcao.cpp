@@ -7,13 +7,16 @@ Funcao::Funcao() {}
 Funcao* Funcao::extrai_funcao(No_arv_parse *no) {
   if (no == NULL) return NULL;
   
-  // CORREÇÃO: proc_decl é a regra 11 na gramatica-9.site
-  if (no->regra == 11) {
+  if (no->simb == "proc_decl") {
     Funcao* res = new Funcao();
     res->tipo_retorno = new Tipo(Tipo::INT);
-    res->nome_funcao = ID::extrai_ID(no->filhos[1]);
-    res->parametros = Variavel::extrai_lista_parametros(no->filhos[3]);
-    res->comandos = Comando::extrai_lista_comandos(no->filhos[6]);
+    
+    // Procura os blocos independentemente da sua posição exata nos filhos
+    for (auto filho : no->filhos) {
+        if (filho->simb == "ID") res->nome_funcao = ID::extrai_ID(filho);
+        if (filho->simb == "param_list") res->parametros = Variavel::extrai_lista_parametros(filho);
+        if (filho->simb == "stmt_list") res->comandos = Comando::extrai_lista_comandos(filho);
+    }
     return res;
   }
   
