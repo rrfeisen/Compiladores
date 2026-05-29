@@ -8,18 +8,19 @@ vector<Variavel*> Variavel::extrai_lista_nao_vazia_parametros(No_arv_parse* no) 
   vector<Variavel*> res;
   if (no == NULL) return res;
 
-  if (no->regra == 10) { // CORREÇÃO: id_list -> ID (Regra 10)
-    Variavel* v = new Variavel();
-    v->tipo = new Tipo(Tipo::INT);
-    v->nome = ID::extrai_ID(no->filhos[0]);
-    res.push_back(v);
-  } 
-  else if (no->regra == 9) { // CORREÇÃO: id_list -> id_list COMMA ID (Regra 9)
-    res = extrai_lista_nao_vazia_parametros(no->filhos[0]);
-    Variavel* v = new Variavel();
-    v->tipo = new Tipo(Tipo::INT);
-    v->nome = ID::extrai_ID(no->filhos[2]);
-    res.push_back(v);
+  if (no->simb == "id_list") {
+      for (auto filho : no->filhos) {
+          if (filho->simb == "id_list") {
+              vector<Variavel*> sub = extrai_lista_nao_vazia_parametros(filho);
+              res.insert(res.end(), sub.begin(), sub.end());
+          }
+          if (filho->simb == "ID") {
+              Variavel* v = new Variavel();
+              v->tipo = new Tipo(Tipo::INT);
+              v->nome = ID::extrai_ID(filho);
+              res.push_back(v);
+          }
+      }
   }
   return res;
 }
@@ -28,10 +29,11 @@ vector<Variavel*> Variavel::extrai_lista_parametros(No_arv_parse* no) {
   vector<Variavel*> res;
   if (no == NULL) return res;
   
-  if (no->regra == 7) { // CORREÇÃO: param_list -> id_list (Regra 7)
-    return extrai_lista_nao_vazia_parametros(no->filhos[0]);
+  if (no->simb == "param_list") {
+      for (auto filho : no->filhos) {
+          if (filho->simb == "id_list") return extrai_lista_nao_vazia_parametros(filho);
+      }
   }
-  // Se for a regra 8 (param_list -> ''), retorna lista vazia
   return res;
 }
 
