@@ -5,32 +5,36 @@
 using namespace std;
 
 vector<Variavel*> Variavel::extrai_lista_nao_vazia_parametros(No_arv_parse* no) {
-  // LPx. 4) LPx -> P, 5) LPx -> P , LPx
   vector<Variavel*> res;
-  res.push_back(extrai_variavel_P(no->filhos[0]));
-  if (no->regra == 4) return res;
-  // Tem que ser regra 5. LPx-> P , LPx
-  vector<Variavel*> restante = extrai_lista_nao_vazia_parametros(no->filhos[2]);
-  res.insert(res.end(), restante.begin(), restante.end());
+  if (!no) return res;
+  
+  if (no->regra == 8) { // id_list -> ID
+      Variavel* v = new Variavel();
+      v->tipo = new Tipo(Tipo::INT);
+      v->nome = ID::extrai_ID(no->filhos[0]);
+      res.push_back(v);
+  } 
+  else if (no->regra == 7) { // id_list -> id_list COMMA ID
+      res = extrai_lista_nao_vazia_parametros(no->filhos[0]);
+      Variavel* v = new Variavel();
+      v->tipo = new Tipo(Tipo::INT);
+      v->nome = ID::extrai_ID(no->filhos[2]);
+      res.push_back(v);
+  }
   return res;
 }
 
 vector<Variavel *> Variavel::extrai_lista_parametros(No_arv_parse* no) {
-  // LP
-  if (no->regra == 2) return vector<Variavel*>();
-  // Tem que ser regra 3, com unico filho.
-  return extrai_lista_nao_vazia_parametros(no->filhos[0]);
+  if (!no || no->regra == 6) return vector<Variavel*>(); // Vazio
+  if (no->regra == 5) return extrai_lista_nao_vazia_parametros(no->filhos[0]);
+  return vector<Variavel*>();
 }
 
 Variavel* Variavel::extrai_variavel_P(No_arv_parse* no) {
-  Variavel* res = new Variavel();
-  // 8) P -> Tipo ID
-  res->tipo = Tipo::extrai_Tipo(no->filhos[0]);
-  res->nome = ID::extrai_ID(no->filhos[1]);
-  return res;
+  return NULL; 
 }
 
 void Variavel::debug_com_tab(int tab) {
   tab3(tab);
-  cerr << "[" << nome->nome << ":" <<  (tipo == NULL ? "TIPO_INVALIDO" : tipo->nome()) << "] Variavel Declarada" << endl;
+  cerr << "[" << nome->nome << "] Variavel Declarada" << endl;
 }
