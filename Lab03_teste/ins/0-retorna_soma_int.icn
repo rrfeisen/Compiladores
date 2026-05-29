@@ -1,0 +1,5 @@
+procedure soma(a, b)
+  local resultado
+  resultado := a + b * 2
+  return resultado
+end
