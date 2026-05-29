@@ -12,12 +12,17 @@
 #include "../debug-util.hpp"
 
 vector<Comando*> Comando::extrai_lista_comandos(No_arv_parse* no) {
-  if (no->regra == 13) return vector<Comando*>(); // stmt_list -> stmt
   vector<Comando*> res;
-  if (no->filhos.size() > 0) res.push_back(extrai_comando(no->filhos[0]));
-  if (no->filhos.size() > 1) {
-      vector<Comando*> restante = extrai_lista_comandos(no->filhos[1]);
-      res.insert(res.end(), restante.begin(), restante.end());
+  if (!no) return res;
+
+  if (no->regra == 13) { // stmt_list -> stmt
+      Comando* c = extrai_comando(no->filhos[0]);
+      if (c) res.push_back(c);
+  } 
+  else if (no->regra == 12) { // stmt_list -> stmt_list stmt
+      res = extrai_lista_comandos(no->filhos[0]);
+      Comando* c = extrai_comando(no->filhos[1]);
+      if (c) res.push_back(c);
   }
   return res;
 }
@@ -55,11 +60,6 @@ Comando* Comando::extrai_comando(No_arv_parse* no) {
   if (no->regra == 23 || no->regra == 24) { // BLOCO
     ComandoLista* res = new ComandoLista();
     if (no->regra == 23) res->lista_comandos = extrai_lista_comandos(no->filhos[1]);
-    return res;
-  }
-  if (no->regra == 9 || no->regra == 8) { // DECLARACAO (Ajuste a regra se for Record/Proc)
-    ComandoDeclaracao* res = new ComandoDeclaracao();
-    res->variavel = Variavel::extrai_variavel_P(no->filhos[0]);
     return res;
   }
   return NULL;
