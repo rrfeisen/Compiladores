@@ -1,11 +1,11 @@
 #include <algorithm>
-#include<vector>
-#include<string>
-#include<iostream>
+#include <vector>
+#include <string>
+#include <iostream>
 #include <fstream>   
-#include<sstream>
-#include<map>
-#include<stack>
+#include <sstream>
+#include <map>
+#include <stack>
 using namespace std;
 
 #include "Gramatica.hpp"
@@ -15,50 +15,52 @@ using namespace std;
 #include "Funcao.hpp"
 #include "Analisador.hpp"
 
-
 int main(int argc, char * argv[]) {
-  if (argc != 3 && argc != 1) {
-    cerr << "Parametros nomes dos arquivos: 1) csv com gramática e 2) csv com tabela LR1" << endl;
+  if (argc < 3) {
+    cerr << "Uso: ./compilador <gramatica> <tabela_lr1> [arquivo.params]" << endl;
     return 1;
   }
-  string nome_gramatica, nome_tab_lr1;
-  if (argc == 1) {
-    //cerr << "Valores padrao utilizados: gramatica9.site e tabela_lr1.conf" << endl;
-    nome_gramatica = string("gramatica9.site");
-    nome_tab_lr1 = string("tabela_lr1.conf");
-  } else {
-    nome_gramatica = string(argv[1]);
-    nome_tab_lr1 = string(argv[2]);
-  }
+  string nome_gramatica = string(argv[1]);
+  string nome_tab_lr1 = string(argv[2]);
+  string nome_params = (argc >= 4) ? string(argv[3]) : "";
 
   ifstream arq_gramatica(nome_gramatica);
   ifstream arq_tabela_lr1(nome_tab_lr1);
-  if (arq_tabela_lr1.fail() || arq_gramatica.fail()) {
-    cerr << "Falha ao abrir arquivos: " << 
-      ((arq_gramatica.fail()) ? nome_gramatica : "") << ", " << 
-      ((arq_tabela_lr1.fail()) ? nome_tab_lr1 : "") << endl;
-    return 1;    
-  }
-  Parser parser(arq_gramatica, arq_tabela_lr1);
-  parser.tabela.debug();
-  parser.gram.debug();
+  if (arq_tabela_lr1.fail() || arq_gramatica.fail()) return 1;    
 
-  
+  Parser parser(arq_gramatica, arq_tabela_lr1);
   Arvore_parse arv = parser.executa_parse(cin);
-  cerr << "Parse executado" << endl;
-  arv.debug();
   Funcao* func = Funcao::extrai_funcao(arv.raiz);
-  func->debug();
-  // Exemplo de chamada do analisador semantico.
+
   vector<ValorLiteral> parametros_passados;
-  for (int i = 1; i <= 3; ++i) {
-    ValorLiteral valor_parametro;
-    valor_parametro.tipo = new Tipo(Tipo::INT);
-    valor_parametro.valor_int = i*10;
-    parametros_passados.push_back(valor_parametro);
+
+  // Lógica para ler os parâmetros do arquivo criado por si
+  if (!nome_params.empty() && func != NULL) {
+    ifstream arq_params(nome_params);
+    if (!arq_params.fail()) {
+        string linha;
+        int i = 0;
+        while (getline(arq_params, linha) && i < func->parametros.size()) {
+            if (linha.empty()) continue;
+            ValorLiteral valor;
+            valor.tipo = new Tipo(func->parametros[i]->tipo->valor);
+
+            if (valor.tipo->valor == Tipo::INT) valor.valor_int = stoi(linha);
+            else if (valor.tipo->valor == Tipo::FLOAT) valor.valor_float = stof(linha);
+            else if (valor.tipo->valor == Tipo::BOOL) {
+                string up = linha;
+                transform(up.begin(), up.end(), up.begin(), ::toupper);
+                valor.valor_bool = (up == "TRUE" || up == "1");
+            }
+            parametros_passados.push_back(valor);
+            i++;
+        }
+    }
   }
-  Analisador ana;
-  cout << "Retorno calculado:" << endl;
-  cout << ana.calcula_retorno(func, parametros_passados) << endl;
+
+  if (func != NULL) {
+      Analisador ana;
+      ana.calcula_retorno(func, parametros_passados);
+  }
   return 0;
 }
