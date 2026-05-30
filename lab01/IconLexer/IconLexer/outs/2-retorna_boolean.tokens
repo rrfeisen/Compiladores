@@ -1,0 +1,24 @@
+COMMENT # Em Icon, booleanos sao representados por sucesso/falha ou 1/0.
+COMMENT # !false == (x < 10) equivale a verificar se x < 10.
+KW_PROCEDURE procedure
+ID testa
+LPAREN (
+ID ativo
+COMMA ,
+ID x
+RPAREN )
+KW_LOCAL local
+ID ok
+ID ok
+OP_ASGN :=
+KW_IF if
+ID x
+OP_LT <
+INT_LIT 10
+KW_THEN then
+INT_LIT 1
+KW_ELSE else
+INT_LIT 0
+KW_RETURN return
+ID ok
+KW_END end

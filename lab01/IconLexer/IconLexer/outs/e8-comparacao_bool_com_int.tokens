@@ -1,0 +1,24 @@
+COMMENT # AVISO: Erro de tipo no original - operador < entre BOOL e INT.
+COMMENT # Em Icon nao ha verificacao de tipo; a comparacao numerica e realizada.
+KW_PROCEDURE procedure
+ID erroMenorBool
+LPAREN (
+ID ativo
+COMMA ,
+ID limite
+RPAREN )
+KW_LOCAL local
+ID resultado
+ID resultado
+OP_ASGN :=
+KW_IF if
+ID ativo
+OP_LT <
+ID limite
+KW_THEN then
+INT_LIT 1
+KW_ELSE else
+INT_LIT 0
+KW_RETURN return
+ID resultado
+KW_END end

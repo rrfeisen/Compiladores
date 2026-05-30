@@ -1,0 +1,19 @@
+COMMENT # AVISO: Erro de tipo no original - funcao boolean retorna float.
+COMMENT # Em Icon nao ha verificacao de tipo; o float e retornado normalmente.
+KW_PROCEDURE procedure
+ID erroRetornoFloatEmBool
+LPAREN (
+ID taxa
+COMMA ,
+ID valor
+RPAREN )
+KW_LOCAL local
+ID desconto
+ID desconto
+OP_ASGN :=
+ID valor
+OP_TIMES *
+ID taxa
+KW_RETURN return
+ID desconto
+KW_END end

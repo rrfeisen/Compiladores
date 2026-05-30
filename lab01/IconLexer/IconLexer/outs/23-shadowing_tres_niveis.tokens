@@ -1,0 +1,32 @@
+COMMENT # SHADOWING - 3 niveis: cada nivel re-declara 'v' lendo o 'v' do escopo pai.
+COMMENT # Em Icon, renomeamos para v0, v1, v2 para preservar a semantica.
+COMMENT # Com x=2: v0=4, v1=12, v2=13 -> retorna 13.
+KW_PROCEDURE procedure
+ID sombraTresNiveis
+LPAREN (
+ID x
+RPAREN )
+KW_LOCAL local
+ID v0
+COMMA ,
+ID v1
+COMMA ,
+ID v2
+ID v0
+OP_ASGN :=
+ID x
+OP_TIMES *
+INT_LIT 2
+ID v1
+OP_ASGN :=
+ID v0
+OP_TIMES *
+INT_LIT 3
+ID v2
+OP_ASGN :=
+ID v1
+OP_PLUS +
+INT_LIT 1
+KW_RETURN return
+ID v2
+KW_END end

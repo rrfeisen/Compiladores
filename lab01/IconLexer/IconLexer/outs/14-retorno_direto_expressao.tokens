@@ -1,0 +1,10 @@
+KW_PROCEDURE procedure
+ID dobro
+LPAREN (
+ID n
+RPAREN )
+KW_RETURN return
+ID n
+OP_TIMES *
+INT_LIT 2
+KW_END end

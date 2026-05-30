@@ -1,0 +1,5 @@
+procedure iguaisFloat(a, b)
+  local resultado
+  resultado := if a = b then 1 else 0
+  return resultado
+end

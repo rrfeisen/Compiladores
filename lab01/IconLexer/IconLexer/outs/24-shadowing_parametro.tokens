@@ -1,0 +1,32 @@
+COMMENT # SHADOWING: O parametro 'x' era sombreado por uma variavel local
+COMMENT # no bloco interno. Em Icon, renomeamos a variavel interna para 'x2'.
+COMMENT # Semantica preservada: acum = x*2; x2 = acum+9; return x2*x2
+KW_PROCEDURE procedure
+ID sombraParametro
+LPAREN (
+ID x
+RPAREN )
+KW_LOCAL local
+ID acum
+COMMA ,
+ID x2
+COMMA ,
+ID resultado
+ID acum
+OP_ASGN :=
+ID x
+OP_TIMES *
+INT_LIT 2
+ID x2
+OP_ASGN :=
+ID acum
+OP_PLUS +
+INT_LIT 9
+ID resultado
+OP_ASGN :=
+ID x2
+OP_TIMES *
+ID x2
+KW_RETURN return
+ID resultado
+KW_END end
