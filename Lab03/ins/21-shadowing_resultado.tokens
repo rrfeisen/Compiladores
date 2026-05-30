@@ -1,0 +1,25 @@
+COMMENT # SHADOWING: Icon nao suporta sombreamento por escopo de bloco.
+COMMENT # A variavel interna 'resultado' foi renomeada para 'resultado2'
+COMMENT # para preservar a semantica original (retorna x * 1).
+KW_PROCEDURE procedure
+ID sombra
+LPAREN (
+ID x
+RPAREN )
+KW_LOCAL local
+ID resultado
+COMMA ,
+ID resultado2
+ID resultado
+OP_ASGN :=
+ID x
+OP_TIMES *
+INT_LIT 100
+ID resultado2
+OP_ASGN :=
+ID x
+OP_TIMES *
+INT_LIT 1
+KW_RETURN return
+ID resultado2
+KW_END end

@@ -1,0 +1,9 @@
+# SHADOWING: Icon nao suporta sombreamento por escopo de bloco.
+# A variavel interna 'resultado' foi renomeada para 'resultado2'
+# para preservar a semantica original (retorna x * 1).
+procedure sombra(x)
+  local resultado, resultado2
+  resultado  := x * 100
+  resultado2 := x * 1
+  return resultado2
+end

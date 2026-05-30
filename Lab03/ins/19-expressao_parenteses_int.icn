@@ -1,0 +1,5 @@
+procedure calcular(a, b, c)
+  local resultado
+  resultado := (a + b) * (b - c)
+  return resultado
+end

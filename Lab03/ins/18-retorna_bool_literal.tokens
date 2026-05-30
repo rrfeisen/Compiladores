@@ -1,0 +1,8 @@
+COMMENT # Em Icon, o literal booleano true e representado como 1.
+KW_PROCEDURE procedure
+ID verdadeiro
+LPAREN (
+RPAREN )
+KW_RETURN return
+INT_LIT 1
+KW_END end
