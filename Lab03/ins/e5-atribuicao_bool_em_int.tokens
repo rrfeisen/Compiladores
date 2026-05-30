@@ -1,0 +1,17 @@
+COMMENT # AVISO: Erro de tipo no original - variavel int recebe valor bool (true).
+COMMENT # Em Icon, true e representado como 1.
+KW_PROCEDURE procedure
+ID erroAtribuicaoBool
+LPAREN (
+ID a
+RPAREN )
+KW_LOCAL local
+ID x
+ID x
+OP_ASGN :=
+INT_LIT 1
+KW_RETURN return
+ID x
+OP_PLUS +
+ID a
+KW_END end

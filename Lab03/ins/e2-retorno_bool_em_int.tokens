@@ -1,0 +1,22 @@
+COMMENT # AVISO: Erro de tipo no original - funcao declarada como int, mas retorna bool.
+COMMENT # Em Icon, bool e representado como 1/0.
+KW_PROCEDURE procedure
+ID erroRetornoBool
+LPAREN (
+ID x
+RPAREN )
+KW_LOCAL local
+ID flag
+ID flag
+OP_ASGN :=
+KW_IF if
+ID x
+OP_LT <
+INT_LIT 0
+KW_THEN then
+INT_LIT 1
+KW_ELSE else
+INT_LIT 0
+KW_RETURN return
+ID flag
+KW_END end

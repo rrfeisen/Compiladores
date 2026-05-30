@@ -1,0 +1,7 @@
+# AVISO: Erro de tipo no original - funcao boolean retorna float.
+# Em Icon nao ha verificacao de tipo; o float e retornado normalmente.
+procedure erroRetornoFloatEmBool(taxa, valor)
+  local desconto
+  desconto := valor * taxa
+  return desconto
+end
