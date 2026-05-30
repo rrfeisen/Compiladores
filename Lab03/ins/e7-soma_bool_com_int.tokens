@@ -1,0 +1,19 @@
+COMMENT # AVISO: Erro de tipo no original - operador + entre BOOL e INT.
+COMMENT # Em Icon, booleans sao representados como 1/0, entao a soma funciona.
+KW_PROCEDURE procedure
+ID erroSomaBool
+LPAREN (
+ID b
+COMMA ,
+ID x
+RPAREN )
+KW_LOCAL local
+ID resultado
+ID resultado
+OP_ASGN :=
+ID b
+OP_PLUS +
+ID x
+KW_RETURN return
+ID resultado
+KW_END end

@@ -1,0 +1,35 @@
+COMMENT # Icon nao possui escopo de bloco; variaveis de todos os niveis
+COMMENT # sao declaradas como locais da procedure.
+KW_PROCEDURE procedure
+ID triplo_aninhado
+LPAREN (
+RPAREN )
+KW_LOCAL local
+ID a
+COMMA ,
+ID b
+COMMA ,
+ID c
+COMMA ,
+ID d
+ID a
+OP_ASGN :=
+INT_LIT 1
+ID b
+OP_ASGN :=
+ID a
+OP_PLUS +
+INT_LIT 2
+ID c
+OP_ASGN :=
+ID b
+OP_TIMES *
+INT_LIT 3
+ID d
+OP_ASGN :=
+ID c
+OP_MINUS -
+INT_LIT 1
+KW_RETURN return
+ID d
+KW_END end

@@ -1,35 +1,51 @@
 #include "ValorLiteral.hpp"
-#include <algorithm>
-#include <stdlib.h>
 #include <sstream>
+#include <iomanip>
+#include <stdlib.h>
 
 ValorLiteral::ValorLiteral() {
-  tipo = NULL;
-  valor_int = 0;
+  tipo        = NULL;
+  valor_int   = 0;
   valor_float = 0.0f;
-  valor_bool = false;
+  valor_bool  = false;
+}
+
+ValorLiteral::ValorLiteral(int v) {
+  tipo        = new Tipo(Tipo::INT);
+  valor_int   = v;
+  valor_float = 0.0f;
+  valor_bool  = false;
+}
+
+ValorLiteral::ValorLiteral(float v) {
+  tipo        = new Tipo(Tipo::FLOAT);
+  valor_int   = 0;
+  valor_float = v;
+  valor_bool  = false;
+}
+
+ValorLiteral::ValorLiteral(bool v) {
+  tipo        = new Tipo(Tipo::BOOL);
+  valor_int   = 0;
+  valor_float = 0.0f;
+  valor_bool  = v;
 }
 
 string ValorLiteral::como_string() const {
-  if (tipo == NULL) return "";
+  if (tipo == NULL) return "nil";
   stringstream ss;
   switch(tipo->valor) {
   case Tipo::INT:
     ss << valor_int;
     break;
   case Tipo::FLOAT:
-    ss << valor_float;
+    ss << fixed << setprecision(2) << valor_float;
     break;
   case Tipo::BOOL:
     ss << (valor_bool ? "true" : "false");
     break;
   }
   return ss.str();
-}
-
-bool texto_bool(string texto) {
-  transform(texto.begin(), texto.end(), texto.begin(), ::toupper);
-  return texto == "TRUE" || texto == "1";
 }
 
 ValorLiteral* ValorLiteral::extrai_valor_literal(No_arv_parse* no) {
@@ -43,12 +59,10 @@ ValorLiteral* ValorLiteral::extrai_valor_literal(No_arv_parse* no) {
     res->valor_int = atoi(no->dado_extra.c_str());
     break;
   case Tipo::FLOAT:
-    res->valor_float = atof(no->dado_extra.c_str());
+    res->valor_float = (float)atof(no->dado_extra.c_str());
     break;
-  case Tipo::BOOL:
-    res->valor_bool = texto_bool(no->dado_extra);
+  default:
     break;
   }
-
   return res;
 }

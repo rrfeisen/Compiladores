@@ -8,6 +8,10 @@ GRAM_DIR := src/src-gram$(GRAM)
 GRAM_FILE ?= gramatica-$(GRAM)/gramatica-$(GRAM).site
 TABELA_FILE ?= gramatica-$(GRAM)/tabela_lr1.conf
 
+TOKENS ?=
+PARAMS ?=
+SAIDA ?=
+
 CORE_SRCS := \
 	src/sol.cpp \
 	src/Arvore.cpp \
@@ -34,7 +38,23 @@ $(BUILD_DIR)/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -I$(GRAM_DIR) -Isrc -MMD -MP -c $< -o $@
 
 run: $(TARGET)
-	./$(TARGET) $(GRAM_FILE) $(TABELA_FILE)
+	@if [ ! -d ins ]; then \
+		echo "Diretorio ins/ nao encontrado"; \
+		exit 1; \
+	fi
+	@for tokens in ins/*.tokens; do \
+		base=$$(basename $$tokens .tokens); \
+		params=ins/$$base.params; \
+		saida=ins/$$base.saida; \
+		if [ ! -f $$params ]; then \
+			echo "AVISO: $$params nao encontrado"; \
+			continue; \
+		fi; \
+		echo "=== Executando $$base ==="; \
+		./$(TARGET) $(GRAM_FILE) $(TABELA_FILE) $$params < $$tokens > $$saida; \
+		echo "Resultado salvo em $$saida"; \
+		echo ""; \
+	done
 
 clean:
 	rm -rf $(BUILD_DIR) $(TARGET)

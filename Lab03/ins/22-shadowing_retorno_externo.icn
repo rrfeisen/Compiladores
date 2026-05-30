@@ -1,4 +1,4 @@
-# SHADOWING — o return esta no escopo EXTERNO, portanto retorna resultado_ext.
+# SHADOWING - o return esta no escopo EXTERNO, portanto retorna resultado_ext.
 # Em Icon, renomeamos a variavel interna para preservar a semantica:
 # resultado_ext = x * 100 e o que e retornado (nao resultado_inner).
 # Com x=5: retorna 500.

@@ -1,4 +1,4 @@
-# AVISO: Erro de tipo no original — funcao declarada como int, mas retorna bool.
+# AVISO: Erro de tipo no original - funcao declarada como int, mas retorna bool.
 # Em Icon, bool e representado como 1/0.
 procedure erroRetornoBool(x)
   local flag

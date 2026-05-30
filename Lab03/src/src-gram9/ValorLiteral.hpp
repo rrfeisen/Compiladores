@@ -7,13 +7,19 @@ using namespace std;
 
 class ValorLiteral {
 public:
-  Tipo* tipo;
-  int valor_int;
-  float valor_float;
-  bool valor_bool;
+  Tipo*  tipo;
+  int    valor_int;
+  float  valor_float;
+  bool   valor_bool;
 
   ValorLiteral();
+  ValorLiteral(int   v);
+  ValorLiteral(float v);
+  ValorLiteral(bool  v);
+
   string como_string() const;
+
+  // Extrai de nó terminal INT_LIT / REAL_LIT
   static ValorLiteral* extrai_valor_literal(No_arv_parse* no);
 };
 

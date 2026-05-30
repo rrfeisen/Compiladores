@@ -1,4 +1,4 @@
-# SHADOWING — 3 niveis: cada nivel re-declara 'v' lendo o 'v' do escopo pai.
+# SHADOWING - 3 niveis: cada nivel re-declara 'v' lendo o 'v' do escopo pai.
 # Em Icon, renomeamos para v0, v1, v2 para preservar a semantica.
 # Com x=2: v0=4, v1=12, v2=13 -> retorna 13.
 procedure sombraTresNiveis(x)

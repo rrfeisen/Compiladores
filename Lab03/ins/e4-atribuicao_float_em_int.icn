@@ -1,4 +1,4 @@
-# AVISO: Erro de tipo no original — variavel int recebe literal float (3.14).
+# AVISO: Erro de tipo no original - variavel int recebe literal float (3.14).
 # Em Icon nao ha verificacao de tipo; o valor float e atribuido normalmente.
 procedure erroAtribuicaoFloat(a)
   local x

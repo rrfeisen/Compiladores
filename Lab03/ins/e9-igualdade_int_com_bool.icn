@@ -1,4 +1,4 @@
-# AVISO: Erro de tipo no original — comparacao == entre INT e BOOL.
+# AVISO: Erro de tipo no original - comparacao == entre INT e BOOL.
 # Em Icon nao ha verificacao de tipo; a comparacao numerica e realizada.
 procedure erroIgualdadeTiposMistos(x, b)
   local resultado

@@ -1,4 +1,4 @@
-# AVISO: Erro de tipo no original — funcao declarada como int, mas retorna float.
+# AVISO: Erro de tipo no original - funcao declarada como int, mas retorna float.
 # Em Icon nao ha verificacao de tipo; o valor float e retornado normalmente.
 procedure erroRetornoFloat(a)
   local resultado

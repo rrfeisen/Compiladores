@@ -1,4 +1,4 @@
-# AVISO: Erro de tipo no original — operador ! aplicado a INT.
+# AVISO: Erro de tipo no original - operador ! aplicado a INT.
 # Em Icon, simulamos a negacao logica: retorna 1 se x = 0, senao 0.
 procedure erroNegacaoInt(x)
   local resultado

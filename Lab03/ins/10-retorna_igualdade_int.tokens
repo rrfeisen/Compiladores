@@ -1,0 +1,22 @@
+COMMENT # Em Icon, comparacoes retornam o operando direito em caso de sucesso ou falham.
+COMMENT # Aqui representamos booleano como 1 (verdadeiro) ou 0 (falso).
+KW_PROCEDURE procedure
+ID ehZero
+LPAREN (
+ID x
+RPAREN )
+KW_LOCAL local
+ID resultado
+ID resultado
+OP_ASGN :=
+KW_IF if
+ID x
+OP_EQ =
+INT_LIT 0
+KW_THEN then
+INT_LIT 1
+KW_ELSE else
+INT_LIT 0
+KW_RETURN return
+ID resultado
+KW_END end

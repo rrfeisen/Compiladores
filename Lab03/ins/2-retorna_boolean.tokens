@@ -22,4 +22,3 @@ INT_LIT 0
 KW_RETURN return
 ID ok
 KW_END end
-$ $

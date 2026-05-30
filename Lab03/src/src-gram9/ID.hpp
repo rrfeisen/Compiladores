@@ -1,6 +1,6 @@
 #ifndef _ID_HPP_
 #define _ID_HPP_
-#include<string>
+#include <string>
 #include "../Arvore.hpp"
 using namespace std;
 

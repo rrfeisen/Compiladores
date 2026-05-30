@@ -1,0 +1,15 @@
+COMMENT # AVISO: Erro de tipo no original - variavel int recebe literal float (3.14).
+COMMENT # Em Icon nao ha verificacao de tipo; o valor float e atribuido normalmente.
+KW_PROCEDURE procedure
+ID erroAtribuicaoFloat
+LPAREN (
+ID a
+RPAREN )
+KW_LOCAL local
+ID x
+ID x
+OP_ASGN :=
+REAL_LIT 3.14
+KW_RETURN return
+ID x
+KW_END end
