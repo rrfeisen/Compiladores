@@ -1,5 +1,0 @@
-procedure calcular(a, b, n)
-  local resultado
-  resultado := (a + b) * 2.0 - (a / b) + n * 0.5
-  return resultado
-end

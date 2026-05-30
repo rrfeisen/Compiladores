@@ -1,5 +1,0 @@
-procedure modulo(a, b)
-  local resto
-  resto := a % b
-  return resto
-end

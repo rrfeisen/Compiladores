@@ -1,3 +1,0 @@
-boolean verdadeiro() {
-  return true;
-}
