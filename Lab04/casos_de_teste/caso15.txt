@@ -1,0 +1,23 @@
+boolean pipelineComplexo ( int id , float peso ) {
+    int estado;
+    int idInterno;
+    float pesoInterno;
+    idInterno = id;
+    pesoInterno = peso;
+    if ( !sistemaIniciado( ) == checarTrava(obterSeguranca( )) ) {
+        return abortar( );
+    } else {
+        while ( atualizarCiclo(idInterno) < obterMaxCiclos(calcularEspera(idInterno)) ) {
+            if ( validarMetrica(pesoInterno + transformar(idInterno)) ) {
+                while ( lerBuffer( ) ) {
+                    pesoInterno = pesoInterno * fatorCorrecao(obterMetricaAtual( ));
+                }
+            } else {
+                if ( logarErro(gerarMensagem(idInterno)) ) {
+                    idInterno = redefinirId(idInterno, puxarBackup( ));
+                }
+            }
+        }
+    }
+    return verificarSucessoFinal(idInterno, finalizarPeso(pesoInterno));
+}

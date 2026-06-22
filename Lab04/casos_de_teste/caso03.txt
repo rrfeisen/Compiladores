@@ -1,0 +1,5 @@
+boolean verificar ( int id ) {
+    if ( validarUsuario(id) == True ) {
+        return True;
+    }
+}

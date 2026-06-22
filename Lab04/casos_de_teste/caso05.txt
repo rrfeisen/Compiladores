@@ -1,0 +1,6 @@
+int loop ( ) {
+    int contador;
+    while ( continuarExecucao(contador) ) {
+        contador = contador + 1;
+    }
+}
