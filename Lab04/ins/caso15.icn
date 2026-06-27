@@ -1,0 +1,21 @@
+procedure pipelineComplexo(id, peso)
+  local estado, idInterno, pesoInterno
+  idInterno := id
+  pesoInterno := peso
+  if not sistemaIniciado() = checarTrava(obterSeguranca()) then {
+    return abortar()
+  } else {
+    while atualizarCiclo(idInterno) < obterMaxCiclos(calcularEspera(idInterno)) do {
+      if validarMetrica(pesoInterno + transformar(idInterno)) then {
+        while lerBuffer() do {
+          pesoInterno := pesoInterno * fatorCorrecao(obterMetricaAtual())
+        }
+      } else {
+        if logarErro(gerarMensagem(idInterno)) then {
+          idInterno := redefinirId(idInterno, puxarBackup())
+        }
+      }
+    }
+  }
+  return verificarSucessoFinal(idInterno, finalizarPeso(pesoInterno))
+end

@@ -1,0 +1,10 @@
+=== FrameFuncao: verificar ===
+tamanho_frame: 40
+n_param_entrada: 1
+n_maximo_param_saida: 1
+n_pseudo_registradores: 0
+n_variaveis_no_frame: 0
+=== Acessos por ocorrencia de variavel ===
+  id -> FRAME FP+8
+=== Retorno calculado (Lab03) ===
+nil

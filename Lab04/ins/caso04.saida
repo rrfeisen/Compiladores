@@ -1,0 +1,11 @@
+=== FrameFuncao: processar ===
+tamanho_frame: 40
+n_param_entrada: 1
+n_maximo_param_saida: 2
+n_pseudo_registradores: 1
+n_variaveis_no_frame: 0
+=== Acessos por ocorrencia de variavel ===
+  res -> TEMP r1
+  valor -> FRAME FP+8
+=== Retorno calculado (Lab03) ===
+0

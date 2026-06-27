@@ -1,0 +1,5 @@
+procedure verificar(id)
+  if validarUsuario(id) = 1 then {
+    return 1
+  }
+end

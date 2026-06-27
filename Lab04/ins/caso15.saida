@@ -1,0 +1,24 @@
+=== FrameFuncao: pipelineComplexo ===
+tamanho_frame: 56
+n_param_entrada: 2
+n_maximo_param_saida: 2
+n_pseudo_registradores: 1
+n_variaveis_no_frame: 2
+=== Acessos por ocorrencia de variavel ===
+  idInterno -> FRAME FP-40
+  id -> FRAME FP+8
+  pesoInterno -> FRAME FP-48
+  peso -> FRAME FP+16
+  idInterno -> FRAME FP-40
+  idInterno -> FRAME FP-40
+  pesoInterno -> FRAME FP-48
+  idInterno -> FRAME FP-40
+  pesoInterno -> FRAME FP-48
+  pesoInterno -> FRAME FP-48
+  idInterno -> FRAME FP-40
+  idInterno -> FRAME FP-40
+  idInterno -> FRAME FP-40
+  idInterno -> FRAME FP-40
+  pesoInterno -> FRAME FP-48
+=== Retorno calculado (Lab03) ===
+0

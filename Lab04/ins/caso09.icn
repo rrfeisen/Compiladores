@@ -1,0 +1,4 @@
+procedure formula(base)
+  local res
+  res := not estaVazio() + (calcular(base) * obterMultiplicador(ajustar(base)))
+end

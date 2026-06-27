@@ -1,0 +1,12 @@
+procedure motorDeBusca(chave)
+  local chaveBusca
+  chaveBusca := chave
+  while iterarDados() do {
+    if comparar(chaveBusca, obterChaveAtual()) = 0 then {
+      while extrairMetadados(chaveBusca) do {
+        chaveBusca := incrementarChave(chaveBusca, calcularSalto(chaveBusca))
+      }
+      return formatarResultado(chaveBusca)
+    }
+  }
+end

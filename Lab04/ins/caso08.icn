@@ -1,0 +1,7 @@
+procedure calcularTaxa(tipo)
+  if estaAtivo(tipo) then {
+    if obterDesconto() > 50 then {
+      return aplicarBonus(total() + 10)
+    }
+  }
+end

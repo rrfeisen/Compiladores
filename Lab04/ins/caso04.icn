@@ -1,0 +1,4 @@
+procedure processar(valor)
+  local res
+  res := calcular(gerarSemente(valor), 42)
+end

@@ -1,0 +1,3 @@
+procedure main(a, b)
+  return soma(a, b)
+end

@@ -1,0 +1,16 @@
+KW_PROCEDURE procedure
+ID main
+LPAREN (
+ID a
+COMMA ,
+ID b
+RPAREN )
+KW_RETURN return
+ID soma
+LPAREN (
+ID a
+COMMA ,
+ID b
+RPAREN )
+KW_END end
+$ $

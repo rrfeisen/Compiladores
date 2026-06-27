@@ -1,0 +1,17 @@
+KW_PROCEDURE procedure
+ID main
+LPAREN (
+ID x
+COMMA ,
+ID y
+RPAREN )
+ID x
+OP_ASGN :=
+INT_LIT 10
+OP_PLUS +
+ID obterFator
+LPAREN (
+ID y
+RPAREN )
+KW_END end
+$ $

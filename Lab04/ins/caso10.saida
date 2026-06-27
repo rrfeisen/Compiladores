@@ -1,0 +1,10 @@
+=== FrameFuncao: processarMatriz ===
+tamanho_frame: 40
+n_param_entrada: 0
+n_maximo_param_saida: 2
+n_pseudo_registradores: 1
+n_variaveis_no_frame: 0
+=== Acessos por ocorrencia de variavel ===
+  celula -> TEMP r1
+=== Retorno calculado (Lab03) ===
+nil

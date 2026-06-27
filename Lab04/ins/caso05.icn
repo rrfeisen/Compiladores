@@ -1,0 +1,6 @@
+procedure loop()
+  local contador
+  while continuarExecucao(contador) do {
+    contador := contador + 1
+  }
+end

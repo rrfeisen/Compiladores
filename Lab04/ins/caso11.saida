@@ -1,0 +1,14 @@
+=== FrameFuncao: validarFluxo ===
+tamanho_frame: 48
+n_param_entrada: 1
+n_maximo_param_saida: 2
+n_pseudo_registradores: 0
+n_variaveis_no_frame: 1
+=== Acessos por ocorrencia de variavel ===
+  estadoAtual -> FRAME FP-40
+  status -> FRAME FP+8
+  estadoAtual -> FRAME FP-40
+  estadoAtual -> FRAME FP-40
+  estadoAtual -> FRAME FP-40
+=== Retorno calculado (Lab03) ===
+1

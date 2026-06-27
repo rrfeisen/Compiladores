@@ -1,0 +1,13 @@
+procedure checarSensor(leitura)
+  local copiaLeitura
+  copiaLeitura := leitura
+  if calibrar(copiaLeitura) = obterAlvo() then {
+    if dispararAlarme() then {
+      return 1
+    }
+  }
+  if not estaPronto() < limiteCritico() then {
+    copiaLeitura := lerSegundaOpcao(copiaLeitura * ajustar())
+  }
+  return verificarSistema()
+end

@@ -1,0 +1,8 @@
+procedure buscar()
+  local sinalizador
+  while lerProximo() do {
+    if extrairValor() = 0 then {
+      return obterPadrao()
+    }
+  }
+end

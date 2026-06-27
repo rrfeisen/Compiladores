@@ -1,0 +1,8 @@
+procedure processarMatriz()
+  local celula
+  while possuiLinha() do {
+    while possuiColuna() do {
+      celula := processarCelula(obterX(), obterY(maximo()))
+    }
+  }
+end

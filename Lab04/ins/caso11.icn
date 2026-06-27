@@ -1,0 +1,11 @@
+procedure validarFluxo(status)
+  local estadoAtual
+  estadoAtual := status
+  while verificarStatus(estadoAtual) do {
+    if not validarToken(gerarToken()) then {
+      estadoAtual := atualizar(estadoAtual, falha())
+    } else {
+      return proximaEtapa()
+    }
+  }
+end

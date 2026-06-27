@@ -1,0 +1,9 @@
+procedure avaliar(x)
+  local localX
+  localX := x
+  if checar(localX) < limite() then {
+    return verificarAtalho(localX)
+  } else {
+    localX := localX * recalcular(localX)
+  }
+end

@@ -1,0 +1,16 @@
+=== FrameFuncao: simular ===
+tamanho_frame: 48
+n_param_entrada: 1
+n_maximo_param_saida: 2
+n_pseudo_registradores: 0
+n_variaveis_no_frame: 1
+=== Acessos por ocorrencia de variavel ===
+  contadorPassos -> FRAME FP-40
+  passos -> FRAME FP+8
+  contadorPassos -> FRAME FP-40
+  contadorPassos -> FRAME FP-40
+  contadorPassos -> FRAME FP-40
+  contadorPassos -> FRAME FP-40
+  contadorPassos -> FRAME FP-40
+  contadorPassos -> FRAME FP-40
+  contadorPassos -> FRAME FP-40
