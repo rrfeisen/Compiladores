@@ -1,4 +1,3 @@
-COMMENT # Icon nao possui escopo de bloco; variaveis locais sao declaradas no inicio.
 KW_PROCEDURE procedure
 ID principal
 LPAREN (
@@ -18,3 +17,4 @@ INT_LIT 2
 KW_RETURN return
 ID y
 KW_END end
+$ $

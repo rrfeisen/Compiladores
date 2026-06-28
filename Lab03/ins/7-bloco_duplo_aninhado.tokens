@@ -1,5 +1,3 @@
-COMMENT # Icon nao possui escopo de bloco; variaveis de todos os niveis
-COMMENT # sao declaradas como locais da procedure.
 KW_PROCEDURE procedure
 ID calcular
 LPAREN (
@@ -26,3 +24,4 @@ INT_LIT 1
 KW_RETURN return
 ID c
 KW_END end
+$ $

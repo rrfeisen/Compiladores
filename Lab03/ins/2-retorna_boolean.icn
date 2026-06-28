@@ -2,6 +2,10 @@
 # !false == (x < 10) equivale a verificar se x < 10.
 procedure testa(ativo, x)
   local ok
-  ok := if x < 10 then 1 else 0
+  if x < 10 then {
+    ok := 1
+  } else {
+    ok := 0
+  }
   return ok
 end
