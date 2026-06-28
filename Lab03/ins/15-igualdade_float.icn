@@ -1,9 +1,0 @@
-procedure iguaisFloat(a, b)
-  local resultado
-  if a = b then {
-    resultado := 1
-  } else {
-    resultado := 0
-  }
-  return resultado
-end
