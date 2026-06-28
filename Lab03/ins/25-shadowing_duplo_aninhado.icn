@@ -1,0 +1,11 @@
+# SHADOWING DUPLO: 'v' e 'w' eram sombreados em blocos aninhados.
+# Em Icon, renomeamos para v0/v1 e w0/w2 para preservar a semantica.
+# Com a=3, b=4: v0=30, w0=5, v1=10, w2=20 -> retorna 20.
+procedure sombraDupla(a, b)
+  local v0, w0, v1, w2
+  v0 := a * 10
+  w0 := b + 1
+  v1 := w0 * 2
+  w2 := v1 + v1
+  return w2
+end

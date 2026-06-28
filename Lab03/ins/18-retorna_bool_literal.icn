@@ -1,0 +1,4 @@
+# Em Icon, o literal booleano true e representado como 1.
+procedure verdadeiro()
+  return 1
+end

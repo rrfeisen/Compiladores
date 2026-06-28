@@ -1,0 +1,9 @@
+procedure menorSoma(a, b, c)
+  local resultado
+  if (a + b) < (c * 2) then {
+    resultado := 1
+  } else {
+    resultado := 0
+  }
+  return resultado
+end
