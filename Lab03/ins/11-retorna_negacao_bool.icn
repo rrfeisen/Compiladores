@@ -1,6 +1,10 @@
 # Negacao logica: inverte 1 para 0 e 0 para 1.
 procedure inverte(b)
   local resultado
-  resultado := if b = 0 then 1 else 0
+  if b = 0 then {
+    resultado := 1
+  } else {
+    resultado := 0
+  }
   return resultado
 end

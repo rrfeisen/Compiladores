@@ -1,5 +1,3 @@
-COMMENT # AVISO: Erro de tipo no original - operador < entre BOOL e INT.
-COMMENT # Em Icon nao ha verificacao de tipo; a comparacao numerica e realizada.
 KW_PROCEDURE procedure
 ID erroMenorBool
 LPAREN (
@@ -9,16 +7,23 @@ ID limite
 RPAREN )
 KW_LOCAL local
 ID resultado
-ID resultado
-OP_ASGN :=
 KW_IF if
 ID ativo
 OP_LT <
 ID limite
 KW_THEN then
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 1
+RBRACE }
 KW_ELSE else
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 0
+RBRACE }
 KW_RETURN return
 ID resultado
 KW_END end
+$ $

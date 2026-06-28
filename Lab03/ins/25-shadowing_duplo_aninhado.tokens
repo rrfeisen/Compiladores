@@ -1,6 +1,3 @@
-COMMENT # SHADOWING DUPLO: 'v' e 'w' eram sombreados em blocos aninhados.
-COMMENT # Em Icon, renomeamos para v0/v1 e w0/w2 para preservar a semantica.
-COMMENT # Com a=3, b=4: v0=30, w0=5, v1=10, w2=20 -> retorna 20.
 KW_PROCEDURE procedure
 ID sombraDupla
 LPAREN (
@@ -39,3 +36,4 @@ ID v1
 KW_RETURN return
 ID w2
 KW_END end
+$ $

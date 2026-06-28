@@ -26,3 +26,4 @@ INT_LIT 3
 KW_RETURN return
 ID resultado
 KW_END end
+$ $

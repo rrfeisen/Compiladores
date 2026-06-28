@@ -1,5 +1,3 @@
-COMMENT # AVISO: Erro de tipo no original - operador ! aplicado a INT.
-COMMENT # Em Icon, simulamos a negacao logica: retorna 1 se x = 0, senao 0.
 KW_PROCEDURE procedure
 ID erroNegacaoInt
 LPAREN (
@@ -7,16 +5,23 @@ ID x
 RPAREN )
 KW_LOCAL local
 ID resultado
-ID resultado
-OP_ASGN :=
 KW_IF if
 ID x
 OP_EQ =
 INT_LIT 0
 KW_THEN then
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 1
+RBRACE }
 KW_ELSE else
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 0
+RBRACE }
 KW_RETURN return
 ID resultado
 KW_END end
+$ $

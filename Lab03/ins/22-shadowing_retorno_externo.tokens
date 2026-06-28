@@ -1,7 +1,3 @@
-COMMENT # SHADOWING - o return esta no escopo EXTERNO, portanto retorna resultado_ext.
-COMMENT # Em Icon, renomeamos a variavel interna para preservar a semantica:
-COMMENT # resultado_ext = x * 100 e o que e retornado (nao resultado_inner).
-COMMENT # Com x=5: retorna 500.
 KW_PROCEDURE procedure
 ID sombraRetornoExterno
 LPAREN (
@@ -24,3 +20,4 @@ INT_LIT 1
 KW_RETURN return
 ID resultado_ext
 KW_END end
+$ $

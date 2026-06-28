@@ -1,5 +1,3 @@
-COMMENT # AVISO: Erro de tipo no original - funcao declarada como int, mas retorna float.
-COMMENT # Em Icon nao ha verificacao de tipo; o valor float e retornado normalmente.
 KW_PROCEDURE procedure
 ID erroRetornoFloat
 LPAREN (
@@ -15,3 +13,4 @@ REAL_LIT 1.5
 KW_RETURN return
 ID resultado
 KW_END end
+$ $

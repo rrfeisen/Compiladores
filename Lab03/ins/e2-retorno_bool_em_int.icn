@@ -2,6 +2,10 @@
 # Em Icon, bool e representado como 1/0.
 procedure erroRetornoBool(x)
   local flag
-  flag := if x < 0 then 1 else 0
+  if x < 0 then {
+    flag := 1
+  } else {
+    flag := 0
+  }
   return flag
 end

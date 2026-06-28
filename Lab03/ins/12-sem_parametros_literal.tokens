@@ -10,3 +10,4 @@ INT_LIT 42
 KW_RETURN return
 ID x
 KW_END end
+$ $

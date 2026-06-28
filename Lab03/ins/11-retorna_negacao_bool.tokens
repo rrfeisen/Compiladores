@@ -1,4 +1,3 @@
-COMMENT # Negacao logica: inverte 1 para 0 e 0 para 1.
 KW_PROCEDURE procedure
 ID inverte
 LPAREN (
@@ -6,16 +5,23 @@ ID b
 RPAREN )
 KW_LOCAL local
 ID resultado
-ID resultado
-OP_ASGN :=
 KW_IF if
 ID b
 OP_EQ =
 INT_LIT 0
 KW_THEN then
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 1
+RBRACE }
 KW_ELSE else
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 0
+RBRACE }
 KW_RETURN return
 ID resultado
 KW_END end
+$ $

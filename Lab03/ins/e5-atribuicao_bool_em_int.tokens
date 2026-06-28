@@ -1,5 +1,3 @@
-COMMENT # AVISO: Erro de tipo no original - variavel int recebe valor bool (true).
-COMMENT # Em Icon, true e representado como 1.
 KW_PROCEDURE procedure
 ID erroAtribuicaoBool
 LPAREN (
@@ -15,3 +13,4 @@ ID x
 OP_PLUS +
 ID a
 KW_END end
+$ $

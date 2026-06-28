@@ -9,8 +9,6 @@ ID c
 RPAREN )
 KW_LOCAL local
 ID resultado
-ID resultado
-OP_ASGN :=
 KW_IF if
 LPAREN (
 ID a
@@ -24,9 +22,18 @@ OP_TIMES *
 INT_LIT 2
 RPAREN )
 KW_THEN then
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 1
+RBRACE }
 KW_ELSE else
+LBRACE {
+ID resultado
+OP_ASGN :=
 INT_LIT 0
+RBRACE }
 KW_RETURN return
 ID resultado
 KW_END end
+$ $
