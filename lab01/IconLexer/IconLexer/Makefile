@@ -11,7 +11,7 @@ INS_DIR     := ins
 OUTS_DIR    := outs
 
 ICN_FILES   := $(wildcard $(INS_DIR)/*.icn)
-TOKEN_FILES := $(patsubst $(INS_DIR)/%.icn, $(OUTS_DIR)/%.tokens, $(ICN_FILES))
+TOKEN_FILES := $(patsubst $(INS_DIR)/%.icn, $(OUTS_DIR)/%.in, $(ICN_FILES))
 
 # ─── Alvo padrão ─────────────────────────────────────────────
 .PHONY: all clean compile tokens
